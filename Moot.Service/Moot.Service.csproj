@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3FDA4E72-60E2-4356-997E-EC1546E1C0BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Moot.Service</RootNamespace>
+    <AssemblyName>Moot.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoMapperBootStrapper.cs" />
+    <Compile Include="Implementation\BlogService.cs" />
+    <Compile Include="Implementation\QuestionService.cs" />
+    <Compile Include="Implementation\TagService.cs" />
+    <Compile Include="Implementation\UserService.cs" />
+    <Compile Include="Interfaces\IBlogService.cs" />
+    <Compile Include="Interfaces\ITagService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Mappers\BlogMapper.cs" />
+    <Compile Include="Messages\Blogs\CreatePostRequest.cs" />
+    <Compile Include="Messages\Blogs\CreatePostResponse.cs" />
+    <Compile Include="Messages\Blogs\GetPostRequest.cs" />
+    <Compile Include="Messages\Blogs\GetPostResponse.cs" />
+    <Compile Include="Messages\Blogs\RemovePostRequest.cs" />
+    <Compile Include="Messages\Blogs\RemovePostResponse.cs" />
+    <Compile Include="Messages\Blogs\UpdatePostRequest.cs" />
+    <Compile Include="Messages\Blogs\UpdatePostResponse.cs" />
+    <Compile Include="Messages\Questions\RemoveQuestionRequest.cs" />
+    <Compile Include="Messages\Questions\RemoveQuestionResponse.cs" />
+    <Compile Include="Messages\Questions\UpdateQuestionRequest.cs" />
+    <Compile Include="Messages\Questions\UpdateQuestionResponse.cs" />
+    <Compile Include="Messages\Tags\CreateTagRequest.cs" />
+    <Compile Include="Messages\Tags\CreateTagResponse.cs" />
+    <Compile Include="Messages\Users\Users.cs" />
+    <Compile Include="ViewModels\BlogViewModel.cs" />
+    <Compile Include="ViewModels\TagViewModel.cs" />
+    <Compile Include="ViewModels\QuestionViewModel.cs" />
+    <Compile Include="ViewModels\ContactViewModel.cs" />
+    <Compile Include="Implementation\ContactService.cs" />
+    <Compile Include="Interfaces\IContactService.cs" />
+    <Compile Include="Interfaces\IQuestionService.cs" />
+    <Compile Include="Mappers\ContactMapper.cs" />
+    <Compile Include="Mappers\QuestionMapper.cs" />
+    <Compile Include="Messages\Contacts\CreateContactRequest.cs" />
+    <Compile Include="Messages\Contacts\CreateContactResponse.cs" />
+    <Compile Include="Messages\Contacts\GetContactRequest.cs" />
+    <Compile Include="Messages\Contacts\GetContactResponse.cs" />
+    <Compile Include="Messages\Contacts\RemoveContactRequest.cs" />
+    <Compile Include="Messages\Contacts\RemoveContactResponse.cs" />
+    <Compile Include="Messages\Questions\CreateQuestionRequest.cs" />
+    <Compile Include="Messages\Questions\CreateQuestionResponse.cs" />
+    <Compile Include="Messages\Questions\GetQuestionRequest.cs" />
+    <Compile Include="Messages\Questions\GetQuestionResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Moot.Business\Moot.Business.csproj">
+      <Project>{C9D27713-9ED7-49CA-8CF4-500F4F9A8FA6}</Project>
+      <Name>Moot.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Moot.DAL\Moot.DAL.csproj">
+      <Project>{49e0fe8e-037d-4659-9d44-aa14c2ec4a50}</Project>
+      <Name>Moot.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
